@@ -18,14 +18,6 @@ public class User {
 	private int height;
 	private int weight;
 	private int gender;
+	private String token;
 	
-	@OneToOne
-	@JoinColumn(name = "user_id")
-    private DeviceAccount deviceAccount;
-	
-	@OneToOne
-	@JoinColumn(name = "user_id")
-    private LinkedAccount linkedAccount;
-//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
-//	Collection<>
 }

@@ -7,5 +7,5 @@ import model.DeviceAccount;
 
 @Repository
 public interface DeviceAccountRepository extends JpaRepository<Integer, DeviceAccount>{
-
+	public DeviceAccount getById(String deviceId);
 }
