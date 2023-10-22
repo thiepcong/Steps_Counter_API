@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,11 +27,12 @@ public class StepCounterController {
 	private UserServiceImpl userServiceImpl;
 	
 //Báo cáo thống kê
-	@GetMapping("/week/{userId}")
-	public @ResponseBody UserStatOutputDto getStatWeekByUser(@PathVariable("userId") Integer userId){
+	
+	@GetMapping("/week")
+	public @ResponseBody UserStatOutputDto getStatWeekByUser(@RequestHeader("token") String token){
 
-		User user = userServiceImpl.getUserById(userId);
-		List<StepCounterOuputDto> stepCounterOuputDtos = stepCounterService.getStatWeekByUser(userId);
+		User user = userServiceImpl.getUser(token);
+		List<StepCounterOuputDto> stepCounterOuputDtos = stepCounterService.getStatWeekByUser(user.getId());
 		
 		UserStatOutputDto userStatOutputDto = new UserStatOutputDto();
 		userStatOutputDto.setId(user.getId());
@@ -43,12 +45,12 @@ public class StepCounterController {
 		return userStatOutputDto;
 	}
 	
-	@GetMapping("/month/{userId}")
-	public @ResponseBody UserStatOutputDto getStatMonthByUser(@PathVariable("userId") Integer userId, Integer numberDay){
+	@GetMapping("/month")
+	public @ResponseBody UserStatOutputDto getStatMonthByUser(@RequestHeader("token") String token, Integer numberDay){
 		
 		numberDay = stepCounterService.getDateOfMonth();
-		User user = userServiceImpl.getUserById(userId);
-		List<StepCounterOuputDto> stepCounterOuputDtos = stepCounterService.getStatMonthByUser(userId, numberDay);
+		User user = userServiceImpl.getUser(token);
+		List<StepCounterOuputDto> stepCounterOuputDtos = stepCounterService.getStatMonthByUser(user.getId(), numberDay);
 		
 		UserStatOutputDto userStatOutputDto = new UserStatOutputDto();
 		userStatOutputDto.setId(user.getId());
