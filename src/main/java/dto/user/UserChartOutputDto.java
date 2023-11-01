@@ -17,8 +17,9 @@ public interface UserChartOutputDto{
 	Integer getHeight();
 	Integer getWeight();
 	Integer getGender();
-	Integer getStepStat();
-	Integer getTimeStat();
-	Float getDistanceStat();
-	Date getRealTimeStat();
+	Integer getStepChart();
+	Integer getTimeChart();
+	Float getDistanceChart();
+	Double getCaloChart();
+	Date getRealTimeChart();
 }

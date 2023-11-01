@@ -20,11 +20,11 @@ public interface StepCounterRepository extends JpaRepository<StepCounter, Intege
 	Integer getDateOfMonth();
 	
 //Báo cáo thống kế
-	@Query(value = "SELECT sc.step as stepStat, sc.time as timeStat, sc.distance as distanceStat, sc.realTime as realTimeStat "
+	@Query(value = "SELECT sc.step as stepStat, sc.time as timeStat, sc.distance as distanceStat, sc.calo as caloStat, sc.realTime as realTimeStat "
 			+ "FROM stepcounter sc WHERE sc.userId = :userId AND sc.realTime <= CURRENT_DATE ORDER BY sc.realTime DESC LIMIT 7", nativeQuery = true)
 	List<StepCounterOuputDto> getStatWeekByUser(@Param("userId") Integer userId);
 	
-	@Query(value = "SELECT sc.step as stepStat, sc.time as timeStat, sc.distance as distanceStat, sc.realTime as realTimeStat "
+	@Query(value = "SELECT sc.step as stepStat, sc.time as timeStat, sc.distance as distanceStat, sc.calo as caloStat, sc.realTime as realTimeStat "
 			+ "FROM stepcounter sc WHERE sc.userId = :userId AND sc.realTime <= CURRENT_DATE ORDER BY sc.realTime DESC", nativeQuery = true)
     List<StepCounterOuputDto> getStatMonthByUser(@Param("userId") Integer userId);
 }

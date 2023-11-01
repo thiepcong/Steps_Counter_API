@@ -19,9 +19,10 @@ public interface UserRepository extends JpaRepository<Integer, User>{
 // Xếp hạng
 	// Xếp hạng tổng thể
 	@Query(value = "SELECT u.id, u.name, u.age, u.height, u.weight, u.gender,"
-			+ "(SELECT SUM(sc.step) FROM stepcounter sc WHERE sc.userId = u.id) as stepStat, "
-			+ "(SELECT SUM(sc.time) FROM stepcounter sc WHERE sc.userId = u.id) as timeStat, "
-			+ "(SELECT SUM(sc.distance) FROM stepcounter sc WHERE sc.userId = u.id) as distanceStat "
-			+ "FROM user u ORDER BY stepStat DESC LIMIT 50", nativeQuery = true)
+			+ "(SELECT SUM(sc.step) FROM stepcounter sc WHERE sc.userId = u.id) as stepChart, "
+			+ "(SELECT SUM(sc.time) FROM stepcounter sc WHERE sc.userId = u.id) as timeChart, "
+			+ "(SELECT SUM(sc.distance) FROM stepcounter sc WHERE sc.userId = u.id) as distanceChart,"
+			+ "(SELECT SUM(sc.calo) FROM stepcounter sc WHERE sc.userId = u.id) as caloChart "
+			+ "FROM user u ORDER BY stepChart DESC LIMIT 50", nativeQuery = true)
 	List<UserChartOutputDto> getChartAll();
 }
