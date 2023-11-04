@@ -1,5 +1,10 @@
 package com.example.stepcounter.dto.user;
 
+import java.util.List;
+
+import com.example.stepcounter.dto.stepcounter.StepCounterOutDto;
+import com.example.stepcounter.model.StepCounter;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,4 +21,5 @@ public class UserOutputDto {
 	private int height;
 	private int weight;
 	private int gender;
+	StepCounterOutDto todayStepCounter;
 }

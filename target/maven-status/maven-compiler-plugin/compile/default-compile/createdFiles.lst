@@ -1,3 +1,4 @@
+com\example\stepcounter\service\stepcounter\StepCounterMapperImpl.class
 com\example\stepcounter\dto\user\UserStatOutputDto.class
 com\example\stepcounter\controller\UserController.class
 com\example\stepcounter\model\LinkedAccount.class
@@ -17,7 +18,9 @@ com\example\stepcounter\service\authentication\AuthenticationServiceImpl.class
 com\example\stepcounter\exceptions\CommandException.class
 com\example\stepcounter\service\authentication\AuthenticationService.class
 com\example\stepcounter\dto\deviceaccount\DeviceAccountInputDto.class
+com\example\stepcounter\dto\stepcounter\StepCounterOutDto.class
 com\example\stepcounter\repository\UserRepository.class
+com\example\stepcounter\service\stepcounter\StepCounterMapper.class
 com\example\stepcounter\service\user\UserService.class
 com\example\stepcounter\dto\user\UserChartOutputDto.class
 com\example\stepcounter\dto\authentication\OFJDto.class
@@ -30,4 +33,5 @@ com\example\stepcounter\repository\LinkedAccountRepository.class
 com\example\stepcounter\service\user\UserMapper.class
 com\example\stepcounter\model\DeviceAccount.class
 com\example\stepcounter\dto\linkedaccount\GoogleTokenInputDto.class
+com\example\stepcounter\exceptions\ExceptionHandlerAdvice.class
 com\example\stepcounter\enums\ErrorCode.class

@@ -27,4 +27,7 @@ public interface StepCounterRepository extends JpaRepository<StepCounter, Intege
 	@Query(value = "SELECT sc.step as stepStat, sc.time as timeStat, sc.distance as distanceStat, sc.calo as caloStat, sc.realTime as realTimeStat "
 			+ "FROM stepcounter sc WHERE sc.userId = :userId AND sc.realTime <= CURRENT_DATE ORDER BY sc.realTime DESC", nativeQuery = true)
     List<StepCounterOuputDto> getStatMonthByUser(@Param("userId") Integer userId);
+
+	@Query(value = "SELECT sc.* FROM stepcounter sc WHERE sc.userid = :userid AND sc.realtime = :now", nativeQuery = true)
+	StepCounter getByUserId(@Param("userid") int userid, @Param("now") Date date);
 }

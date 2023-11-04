@@ -18,11 +18,11 @@ public class StepcounterApplication {
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(StepcounterApplication.class, args);
-		final NgrokClient ngrokClient = new NgrokClient.Builder().build();
-        final CreateTunnel createTunnel = new CreateTunnel.Builder()
-                        .withAddr(8070)
-                        .build();
-        final Tunnel tunnel = ngrokClient.connect(createTunnel);
+//		final NgrokClient ngrokClient = new NgrokClient.Builder().build();
+//        final CreateTunnel createTunnel = new CreateTunnel.Builder()
+//                        .withAddr(8070)
+//                        .build();
+//        final Tunnel tunnel = ngrokClient.connect(createTunnel);
 	}
 
 }

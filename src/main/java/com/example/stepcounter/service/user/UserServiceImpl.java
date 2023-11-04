@@ -8,8 +8,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.stepcounter.dto.user.UserChartOutputDto;
 import com.example.stepcounter.dto.user.UserOutputDto;
+import com.example.stepcounter.enums.ErrorCode;
+import com.example.stepcounter.exceptions.CommandException;
 import com.example.stepcounter.model.User;
 import com.example.stepcounter.repository.UserRepository;
+import com.example.stepcounter.service.stepcounter.StepCounterService;
 
 @Service
 
@@ -23,9 +26,19 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
-
+	
+	@Autowired
+	private StepCounterService stepCounterService;
+	
 	public UserOutputDto getUser(String token) {
-		return mapper.getOutputFromEntity(userRepo.getUserByToken(token));
+		User user = userRepo.getUserByToken(token);
+		
+		if(user != null) {
+			UserOutputDto userOutputDto = mapper.getOutputFromEntity(user);
+			userOutputDto.setTodayStepCounter(stepCounterService.getTodayStepCounter(user));
+			return userOutputDto;
+		}
+		else throw new CommandException(ErrorCode.ACCOUNT_NOT_FOUND);
 	}
 
 	public boolean refreshToken(String token) {

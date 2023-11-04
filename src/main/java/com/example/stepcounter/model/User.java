@@ -1,5 +1,8 @@
 package com.example.stepcounter.model;
 
+import java.util.Collection;
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,4 +28,7 @@ public class User {
 	
 	@OneToOne(mappedBy = "user")
     private LinkedAccount linkedAccount;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+	private List<StepCounter> listStepCounters;
 }

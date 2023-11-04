@@ -24,9 +24,7 @@ public class UserController {
 	@GetMapping
 	public UserOutputDto getUser(@RequestHeader("token") String token) {
 		UserOutputDto userOutput = userServiceImpl.getUser(token);
-		if (userOutput != null)
-			return userOutput;
-		throw new CommandException(ErrorCode.ACCOUNT_NOT_FOUND);
+		return userOutput;
 	}
 	
 	@GetMapping("/chart")
