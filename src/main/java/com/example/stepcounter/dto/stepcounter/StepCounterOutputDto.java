@@ -2,7 +2,7 @@ package com.example.stepcounter.dto.stepcounter;
 
 import java.sql.Date;
 
-public interface StepCounterOuputDto {
+public interface StepCounterOutputDto {
 	Integer getStepStat();
 	Integer getTimeStat();
 	Float getDistanceStat();

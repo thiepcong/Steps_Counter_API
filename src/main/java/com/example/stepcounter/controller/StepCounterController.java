@@ -2,18 +2,13 @@ package com.example.stepcounter.controller;
 
 import java.util.List;
 
+import com.example.stepcounter.dto.stepcounter.StepCounterInputDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.example.stepcounter.dto.stepcounter.StepCounterOuputDto;
+import com.example.stepcounter.dto.stepcounter.StepCounterOutputDto;
 import com.example.stepcounter.dto.user.UserOutputDto;
 import com.example.stepcounter.dto.user.UserStatOutputDto;
-import com.example.stepcounter.model.User;
 import com.example.stepcounter.service.stepcounter.StepCounterService;
 import com.example.stepcounter.service.user.UserServiceImpl;
 
@@ -33,7 +28,7 @@ public class StepCounterController {
 	public @ResponseBody UserStatOutputDto getStatWeekByUser(@RequestHeader("token") String token){
 
 		UserOutputDto user = userServiceImpl.getUser(token);
-		List<StepCounterOuputDto> stepCounterOuputDtos = stepCounterService.getStatWeekByUser(user.getId());
+		List<StepCounterOutputDto> stepCounterOutputDtos = stepCounterService.getStatWeekByUser(user.getId());
 		
 		UserStatOutputDto userStatOutputDto = new UserStatOutputDto();
 		userStatOutputDto.setId(user.getId());
@@ -42,7 +37,7 @@ public class StepCounterController {
 		userStatOutputDto.setHeight(user.getHeight());
 		userStatOutputDto.setWeight(user.getWeight());
 		userStatOutputDto.setGender(user.getGender());
-		userStatOutputDto.setStepCounterOuputDtos(stepCounterOuputDtos);
+		userStatOutputDto.setStepCounterOutputDtos(stepCounterOutputDtos);
 		return userStatOutputDto;
 	}
 	
@@ -51,7 +46,7 @@ public class StepCounterController {
 		
 		numberDay = stepCounterService.getDateOfMonth();
 		UserOutputDto user = userServiceImpl.getUser(token);
-		List<StepCounterOuputDto> stepCounterOuputDtos = stepCounterService.getStatMonthByUser(user.getId(), numberDay);
+		List<StepCounterOutputDto> stepCounterOutputDtos = stepCounterService.getStatMonthByUser(user.getId(), numberDay);
 		
 		UserStatOutputDto userStatOutputDto = new UserStatOutputDto();
 		userStatOutputDto.setId(user.getId());
@@ -60,7 +55,14 @@ public class StepCounterController {
 		userStatOutputDto.setHeight(user.getHeight());
 		userStatOutputDto.setWeight(user.getWeight());
 		userStatOutputDto.setGender(user.getGender());
-		userStatOutputDto.setStepCounterOuputDtos(stepCounterOuputDtos);
+		userStatOutputDto.setStepCounterOutputDtos(stepCounterOutputDtos);
 		return userStatOutputDto;
+	}
+
+	@PutMapping("/update")
+	public void updateStepCounter(@RequestHeader("token") String token, @RequestBody StepCounterInputDto stepCounterDto) {
+		stepCounterDto.setUserId(userServiceImpl.getUser(token).getId());
+		// Gọi phương thức của StepCounterService để thực hiện cập nhật
+		stepCounterService.updateStepCounter(stepCounterDto);
 	}
 }

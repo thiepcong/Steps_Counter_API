@@ -2,7 +2,7 @@ package com.example.stepcounter.dto.user;
 
 import java.util.List;
 
-import com.example.stepcounter.dto.stepcounter.StepCounterOuputDto;
+import com.example.stepcounter.dto.stepcounter.StepCounterOutputDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,5 +22,5 @@ public class UserStatOutputDto {
 	private int height;
 	private int weight;
 	private int gender;
-	private List<StepCounterOuputDto> stepCounterOuputDtos;
+	private List<StepCounterOutputDto> stepCounterOutputDtos;
 }
