@@ -3,6 +3,8 @@ package com.example.stepcounter.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.stepcounter.dto.user.UserOutputDto;
+
 public class Recommendation {
 
 	public Recommendation() {
@@ -10,7 +12,7 @@ public class Recommendation {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public List<Integer> WeightLossAdvisor(User user, int reducedWeight, int durationInDays) {
+	public List<Integer> WeightLossAdvisor(UserOutputDto user, int reducedWeight, int durationInDays) {
 		List<Integer> wl = new ArrayList<>();
         // Tính toán các thông số
         int BMR = calculateBMR(user);
@@ -26,7 +28,7 @@ public class Recommendation {
     }
 
  // Tính BMR theo công thức Mifflin-St Jeor cho nam hoặc nữ
-    public static int calculateBMR(User user) {
+    public static int calculateBMR(UserOutputDto user) {
         if (user.getGender() == 0) {
             return (int) (88.362 + (13.397 * user.getWeight()) + (4.799 * user.getHeight()) - (5.677 * user.getAge()));
         } else {
@@ -45,7 +47,7 @@ public class Recommendation {
     }
     
     //Giữ dáng
-    public int WeightMaintenance(User user) {
+    public int WeightMaintenance(UserOutputDto user) {
     	return calculateBMR(user);
     }
 }
