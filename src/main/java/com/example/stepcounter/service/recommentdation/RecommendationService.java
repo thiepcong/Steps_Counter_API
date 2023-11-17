@@ -1,13 +1,15 @@
-package com.example.stepcounter.model;
-
+package com.example.stepcounter.service.recommendation;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.example.stepcounter.dto.user.UserOutputDto;
 
-public class Recommendation {
+@Service
+public class RecommendationService {
 
-	public Recommendation() {
+	public RecommendationService() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
