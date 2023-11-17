@@ -23,7 +23,7 @@ public class RecommendationService {
 
         // Tạo lộ trình giảm cân theo hàm sigmoid
         for (int day = 1; day <= durationInDays; day++) {
-            int caloriesBurned = (int) (sigmoid(day, durationInDays) * caloriesPerDay + caloriesPerDay);
+            int caloriesBurned = (int) (sigmoid(day, durationInDays) * caloriesPerDay + (int)caloriesPerDay/2);
             wl.add(caloriesBurned);
         }
         return wl;
