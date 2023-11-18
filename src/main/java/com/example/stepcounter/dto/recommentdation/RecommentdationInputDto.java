@@ -1,4 +1,4 @@
-package com.example.stepcounter.dto.recommendation;
+package com.example.stepcounter.dto.recommentdation;
 
 import lombok.Data;
 import lombok.Getter;
