@@ -1,4 +1,4 @@
-package com.example.stepcounter.service.recommendation;
+package com.example.stepcounter.service.recommentdation;
 import java.util.ArrayList;
 import java.util.List;
 
