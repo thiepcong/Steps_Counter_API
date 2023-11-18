@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Data
-public class RecommendationInputDto {
+public class RecommentdationInputDto {
 	private int reducedWeight;
 	private int durationInDays;
 }
