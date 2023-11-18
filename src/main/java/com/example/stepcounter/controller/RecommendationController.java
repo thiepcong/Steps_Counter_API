@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.stepcounter.dto.recommendation.RecommendationInputDto;
-import com.example.stepcounter.dto.recommendation.RecommendationOutputDto;
+import com.example.stepcounter.dto.recommentdation.RecommendationInputDto;
+import com.example.stepcounter.dto.recommentdation.RecommendationOutputDto;
 import com.example.stepcounter.dto.user.UserOutputDto;
-import com.example.stepcounter.service.recommendation.RecommendationService;
+import com.example.stepcounter.service.recommentdation.RecommendationService;
 import com.example.stepcounter.service.user.UserServiceImpl;
 
 @RestController
