@@ -1,4 +1,4 @@
-package com.example.stepcounter.dto.recommentdation;
+package com.example.stepcounter.dto.recommendation;
 
 import lombok.Data;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Data
-public class RecommentdationInputDto {
+public class RecommendationInputDto {
 	private int reducedWeight;
 	private int durationInDays;
 }

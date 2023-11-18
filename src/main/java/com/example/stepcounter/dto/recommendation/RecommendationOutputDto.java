@@ -1,4 +1,4 @@
-package com.example.stepcounter.dto.recommentdation;
+package com.example.stepcounter.dto.recommendation;
 
 import java.util.List;
 
