@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.stepcounter.dto.recommentdation.RecommendationInputDto;
+import com.example.stepcounter.dto.recommentdation.RecommentdationInputDto;
 import com.example.stepcounter.dto.recommentdation.RecommendationOutputDto;
 import com.example.stepcounter.dto.user.UserOutputDto;
 import com.example.stepcounter.service.recommentdation.RecommendationService;
@@ -29,7 +29,7 @@ public class RecommendationController {
     
     //giảm cân
     @GetMapping("/WeightLoss")
-    public @ResponseBody RecommendationOutputDto WeightLoss(@RequestHeader("token") String token, @RequestBody RecommendationInputDto rcInputDto){
+    public @ResponseBody RecommendationOutputDto WeightLoss(@RequestHeader("token") String token, @RequestBody RecommentdationInputDto rcInputDto){
     	UserOutputDto user = userServiceImpl.getUser(token);
     	
         List<Integer> res = re.WeightLossAdvisor(user, rcInputDto.getReducedWeight(), rcInputDto.getDurationInDays());
