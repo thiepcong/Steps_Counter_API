@@ -3,10 +3,13 @@ package com.example.stepcounter.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.stepcounter.dto.user.UserChartOutputDto;
+import com.example.stepcounter.dto.user.UserEditInputDto;
 import com.example.stepcounter.dto.user.UserStatOutputDto;
 import com.example.stepcounter.model.User;
 
@@ -14,8 +17,10 @@ import com.example.stepcounter.model.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 
 	User getUserByToken(String token);
-
+	
 	User findById(int id);
+	
+	UserEditInputDto save(UserEditInputDto updatedUser);
 	
 	@Query(value = "SELECT u.id, u.name, u.age, u.height, u.weight, u.gender,"
 			+ "(SELECT SUM(sc.step) FROM stepcounter sc WHERE sc.userId = u.id) as stepChart, "

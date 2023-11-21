@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.example.stepcounter.StepcounterApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.676 s - in com.example.stepcounter.StepcounterApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.903 s - in com.example.stepcounter.StepcounterApplicationTests

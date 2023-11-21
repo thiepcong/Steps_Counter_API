@@ -31,4 +31,13 @@ public class User {
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
 	private List<StepCounter> listStepCounters;
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", age=" + age + ", height=" + height + ", weight=" + weight
+				+ ", gender=" + gender + ", token=" + token + ", deviceAccount=" + deviceAccount + ", linkedAccount="
+				+ linkedAccount + ", listStepCounters=" + listStepCounters + "]";
+	}
+	
+	
 }
